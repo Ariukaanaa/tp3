@@ -1,3 +1,4 @@
+
 public class Portefeuille {
   private Cryptomonnaie monnaie;
   private double montant; // Soit le nombre de jetons
@@ -22,6 +23,12 @@ public class Portefeuille {
       /**
            FONCTION À IMPLEMENTER
 	  **/
+      if (this.getMonnaie().getNom().equals(destination.getMonnaie().getNom()) && this.montant >= montantJetons)
+      {
+          this.montant -= montantJetons;
+          destination.montant += montantJetons;
+          return true;
+      }
       return false;
   }
 
@@ -36,6 +43,12 @@ public class Portefeuille {
 	/**
            FONCTION À IMPLEMENTER
 	**/
+    if (montantEuros >= 0)
+    {
+        double nbJetons = montantEuros / this.monnaie.getValeurDeJeton();
+        this.montant += nbJetons;
+        return true;
+    }
     return false;
   }
 
