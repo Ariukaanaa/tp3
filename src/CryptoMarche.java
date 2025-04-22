@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 
 public class CryptoMarche {
@@ -21,15 +22,22 @@ public class CryptoMarche {
     /**
      * Cette fonction recherche sur le marché tous les portefeuilles 
      * du propriétaire et calcule son capital en euros. 
-     * @param proprietare
+     * @param proprietaire
      * @return capital en euros du propriétare.
      */
     public double capitalEnEuros(String proprietaire){
         /**
 			FONCTION À IMPLEMENTER
         **/
-
-        return 0;
+        double total = 0;
+        for (Portefeuille p : this.portefeuilles)
+        {
+            if (p.estProprietaire(proprietaire))
+            {
+                total += p.valeurEnEuros();
+            }
+        }
+        return total;
     }
 
     /**
@@ -43,8 +51,15 @@ public class CryptoMarche {
         /**
 			FONCTION À IMPLEMENTER
         **/
-
-        return 0;
+        double total = 0;
+        for (Portefeuille p : this.portefeuilles)
+        {
+            if (p.getMonnaie().getNom().equals(monnaie.getNom()))
+            {
+                total += p.valeurEnEuros();
+            }
+        }
+        return total;
 
     }
 
